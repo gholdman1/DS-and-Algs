@@ -85,6 +85,27 @@ class LinkedList:
             node=node.next
         node.next=node.next.next
 
+    def search(self,x):
+        '''
+        Linear search algorithm to find first instance of x.
+        Returns index. Returns -1 if element not in list.
+        '''
+        
+        if self.head.x==x:
+            return 0
+
+        i=1
+        node=self.head.next
+        while node and node.x != x:
+            node=node.next
+            i+=1
+
+        if not node:
+            return -1
+
+        return i
+            
+
     def size(self):
         '''
         Traversal to get size?
