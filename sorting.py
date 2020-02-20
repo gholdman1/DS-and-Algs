@@ -1,5 +1,8 @@
 # Sorting algorithms
 
+
+
+# Merge sort
 def merge(L,R):
 
     i=0
@@ -35,5 +38,54 @@ def mergesort(arr):
         R=mergesort(R)
 
         arr=merge(L,R)
+
+    return arr
+
+# Quicksort
+def swap(arr,i,j):
+    temp=arr[i]
+    arr[i]=arr[j]
+    arr[j]=temp
+
+    return arr
+
+def partition(arr):
+    
+    pivot=arr[-1]
+
+    i=-1
+    for j in range(len(arr)-1):
+        if arr[j]<=pivot:
+            i+=1
+            arr=swap(arr,i,j)
+    arr=swap(arr,i+1,len(arr)-1)
+    
+    return arr, i+1
+
+def quicksort(arr):
+
+    if len(arr)>1:
+        arr, i = partition(arr)
+
+        if i == 0:
+            arr1=[]
+        else:
+            arr1=quicksort(arr[:i])
+        if i == len(arr)-1:
+            arr2=[]
+        else:
+            arr2=quicksort(arr[i+1:])
+        arr=arr1+[arr[i]]+arr2
+
+    return arr
+
+def bubblesort(arr):
+    n=len(arr)
+    for i in range(n):
+
+        for j in range(0,n-i-1):
+
+            if arr[j]>arr[j+1]:
+                arr=swap(arr,j,j+1)
 
     return arr
