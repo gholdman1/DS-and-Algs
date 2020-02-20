@@ -1,27 +1,51 @@
+from dsalgs import linkedlist
+
 class HashTable:
 
-    def __init__(self,size):
-        self.size=size
-        self.table=[None]*self.size
+    def __init__(self,slots,collisionhandling='chaining'):
+        self.slots=slots
+        self.table=[None]*self.slots
+
+        if collisionhandling=='chaining':
+            self.insert=self.insertnode
 
     def __str__(self):
         table=''
-        if self.size<15:
-            for i in range(self.size):
+        linebreak='-----\n'
+        if self.slots<15:
+            for i in range(self.slots):
                 entry=''
                 if self.table[i]:entry=self.table[i]
-                table+='----\n'
+                table+=linebreak
                 table+=str(entry)
                 table+='\n'
-            table+='----'
+            table+=linebreak
         return table
 
     def __repr__(self):
         return self.__str__()
 
-    def insert(self,x):
+    def insertnode(self,x):
         index=self.hash(x)
-        self.table[index]=x
-    
+        if not self.table[index]:
+            self.table[index]=linkedlist.LinkedList()
+        self.table[index].append(x)
+
+    def loadfactor(self):
+        return self.keys()/self.slots
+
+    def keys(self):
+        '''
+        Returns number of keys
+        '''
+        nkeys=0
+        for i in range(self.slots):
+            if self.table[i]:
+                nkeys+=self.table[i].size()
+
+        return nkeys
+
     def hash(self,x):
-        return x % self.size
+        return x % self.slots
+
+
