@@ -8,6 +8,7 @@ class HashTable:
 
         if collisionhandling=='chaining':
             self.insert=self.insertnode
+            self.delete=self.deletenode
 
     def __str__(self):
         table=''
@@ -25,11 +26,20 @@ class HashTable:
     def __repr__(self):
         return self.__str__()
 
+
     def insertnode(self,x):
         index=self.hash(x)
         if not self.table[index]:
             self.table[index]=linkedlist.LinkedList()
         self.table[index].append(x)
+
+    def deletenode(self,x):
+        '''
+        Delete first occurence of x
+        '''
+        index=self.hash(x)
+        if self.table[index]:
+            self.table[index].delete(x)
 
     def loadfactor(self):
         return self.keys()/self.slots
