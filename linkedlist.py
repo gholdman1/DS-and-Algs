@@ -71,6 +71,20 @@ class LinkedList:
         node.next=newnode
         return
 
+    def delete(self,x):
+        '''
+        Deletes first occurence of x
+        '''
+
+        if self.head.x==x:
+            self.head=self.head.next
+            return
+        
+        node=self.head
+        while node.next.x != x:
+            node=node.next
+        node.next=node.next.next
+
     def size(self):
         '''
         Traversal to get size?
