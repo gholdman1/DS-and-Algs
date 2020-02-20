@@ -9,6 +9,7 @@ class HashTable:
         if collisionhandling=='chaining':
             self.insert=self.insertnode
             self.delete=self.deletenode
+            self.search=self.searchnode
 
     def __str__(self):
         table=''
@@ -27,6 +28,8 @@ class HashTable:
         return self.__str__()
 
 
+    # Chaining methods
+
     def insertnode(self,x):
         index=self.hash(x)
         if not self.table[index]:
@@ -41,6 +44,19 @@ class HashTable:
         if self.table[index]:
             self.table[index].delete(x)
 
+    def searchnode(self,x):
+        '''
+        Returns position of first instance of x
+        '''
+        index=self.hash(x)
+
+        if not self.table[index]:
+            return (index,-1)
+
+        llindex=self.table[index].search(x)
+        return (index,llindex)
+
+    # Basic information about table
     def loadfactor(self):
         return self.keys()/self.slots
 
