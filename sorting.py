@@ -89,3 +89,27 @@ def bubblesort(arr):
                 arr=swap(arr,j,j+1)
 
     return arr
+
+def insertionsort(arr):
+
+    pass
+
+def timsort(arr):
+    '''
+    Based upon insertionsort and mergesort
+    '''
+
+    pass
+
+def selectionsort(arr):
+    '''
+    Similar to insertionsort.
+    '''
+
+    pass
+
+def heapsort(arr):
+    '''
+    An improved version of selectionsort. Utilizes a heap to find largest element
+    '''
+    pass
