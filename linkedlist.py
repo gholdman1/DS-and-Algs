@@ -34,7 +34,7 @@ class LinkedList:
                 node=node.next
         return ll
 
-    def insert(self,x,i):
+    def search_and_insert(self,x,i):
         '''
         Insert value x at position i
         '''
@@ -51,11 +51,20 @@ class LinkedList:
             while pos<i-1:
                 pos+=1
                 node=node.next
-            newnode=Node(x)
-            newnode.next=node.next
-            node.next=newnode
+            self.insert(x,node)
+
+    def insert(self,x,node):
+        '''
+        Insert after given node
+        '''
+        newnode=Node(x)
+        newnode.next=node.next
+        node.next=newnode
 
     def prepend(self,x):
+        '''
+        AKA "prepend"
+        '''
         newhead=Node(x)
         newhead.next=self.head
         self.head=newhead
@@ -88,22 +97,17 @@ class LinkedList:
     def search(self,x):
         '''
         Linear search algorithm to find first instance of x.
-        Returns index. Returns -1 if element not in list.
+        Returns the node. Returns None if element not in list.
         '''
         
         if self.head.x==x:
-            return 0
+            return self.head
 
-        i=1
         node=self.head.next
         while node and node.x != x:
             node=node.next
-            i+=1
 
-        if not node:
-            return -1
-
-        return i
+        return node
             
 
     def size(self):

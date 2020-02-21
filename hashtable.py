@@ -51,7 +51,7 @@ class HashTable:
         index=self.hash(x)
 
         if not self.table[index]:
-            return (index,-1)
+            return (index,None)
 
         llindex=self.table[index].search(x)
         return (index,llindex)
