@@ -1,11 +1,18 @@
+class Node:
+
+    def __init__(self,x):
+        self.x=x
+        self.child=[]
+
+
 class Heap:
     '''
-    Also known as a priority queue.
+    Often used to implement a priority queue.
     '''
 
     def __init__(self):
 
-        pass
+        self.head=None
 
     def insert(self,x):
         pass
