@@ -11,6 +11,10 @@ class HashTable:
             self.delete=self.deletenode
             self.search=self.searchnode
 
+        if collisionhandling=='openaddressing':
+            self.insert=self.insertopen
+        self.collisionhandling=collisionhandling
+    
     def __str__(self):
         table=''
         linebreak='-----\n'
@@ -56,6 +60,22 @@ class HashTable:
         llindex=self.table[index].search(x)
         return (index,llindex)
 
+    # Open Addressing Methods
+
+    def insertopen(self,x):
+        # Ensure table is not full
+
+        if self.loadfactor()==1:
+            return
+
+        index=self.hash(x)
+
+        while self.table[index]:
+            index+=1
+            if index==self.slots:
+                index=0
+        self.table[index]=x
+
     # Basic information about table
     def loadfactor(self):
         return self.keys()/self.slots
@@ -67,7 +87,10 @@ class HashTable:
         nkeys=0
         for i in range(self.slots):
             if self.table[i]:
-                nkeys+=self.table[i].size()
+                if self.collisionhandling=='chaining':
+                    nkeys+=self.table[i].size()
+                if self.collisionhandling=='openaddressing':
+                    nkeys+=1
 
         return nkeys
 
