@@ -26,7 +26,7 @@ class LinkedList:
     def __str__(self):
         if not self.head:
             return  'EMPTY LINKED LIST'
-        if self.size()<10:
+        if self.get_size()<10:
             ll=''
             node=self.head
             while node:
@@ -39,9 +39,9 @@ class LinkedList:
         Insert value x at position i
         '''
         
-        if i > self.size():
-            print('ERROR: position %d is longer then list length %d' % (i, self.size()))
-        if i==self.size():
+        if i > self.get_size():
+            print('ERROR: position %d is longer then list length %d' % (i, self.get_size()))
+        if i==self.get_size():
             self.append(x)
         elif i==0:
             self.prepend(x)
@@ -110,7 +110,13 @@ class LinkedList:
         return node
             
 
-    def size(self):
+    def get_keys(self):
+        '''
+        In a linked list, number of keys is the size
+        '''
+        return self.get_size()
+        
+    def get_size(self):
         '''
         Traversal to get size?
         '''
