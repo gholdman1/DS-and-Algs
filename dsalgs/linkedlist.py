@@ -53,7 +53,7 @@ class LinkedList:
                 node=node.next
             self.insert(x,node)
 
-    def insert(self,x,node):
+    def insert_after(self,x,node):
         '''
         Insert after given node
         '''
@@ -130,3 +130,15 @@ class LinkedList:
                 node=node.next
         return size
 
+    def _set_insert(self,ins_type):
+        '''
+        Choose the implication of LinkedList.insert
+
+        Arugments:
+            ins_type:   'prepend', 'append'
+        '''
+
+        if ins_type=='prepend':
+            self.insert=self.prepend
+        if ins_type=='append':
+            self.insert=self.append
