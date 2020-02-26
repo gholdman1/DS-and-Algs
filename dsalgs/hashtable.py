@@ -78,9 +78,9 @@ class HashTable:
 
     # Basic information about table
     def loadfactor(self):
-        return self.keys()/self.slots
+        return self.get_keys()/self.slots
 
-    def keys(self):
+    def get_keys(self):
         '''
         Returns number of keys
         '''
@@ -96,5 +96,11 @@ class HashTable:
 
     def hash(self,x):
         return x % self.slots
+
+    def get_size(self):
+        '''
+        Returns the size of the table
+        '''
+        return self.slots
 
 
