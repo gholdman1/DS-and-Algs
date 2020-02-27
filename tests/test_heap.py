@@ -57,3 +57,33 @@ class TestHeap:
 		h.insert(0)
 
 		assert h.height() == 1
+
+	def test_make_arr(self):
+		'''
+		Tests make arr
+		'''
+
+		arr = [4,6,7,8,1]
+
+		h = Heap(10)
+		h.make_heap(arr)
+
+		assert h.arr[0]==1
+		assert h.arr[0] < h.arr[1]
+		assert h.arr[0] < h.arr[2]
+
+	def test_insert(self):
+		'''
+		Tests insert method.
+		'''
+
+		arr = [4,6,1]
+
+		h = Heap(10)
+		h.make_heap(arr)
+
+		h.insert(7)
+
+		assert h.arr[3] == 7
+		assert h.arr[0] == 1
+

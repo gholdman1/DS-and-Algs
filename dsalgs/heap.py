@@ -39,6 +39,11 @@ class Heap:
             for i in range(len(arr)):
                 self.insert(arr[i])
 
+    def sub_heap(self,k):
+        '''
+        Returns the subheap starting at index k
+        '''
+
     def height(self):
         n=self.get_keys()
 
