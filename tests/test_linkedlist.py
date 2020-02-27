@@ -27,3 +27,46 @@ class TestLinkedList:
 		ll=LinkedList()
 		ll.append(0)
 		assert ll.head.x==0
+
+	def test_insert_after(self):
+		'''
+		Tests insert_after method by creating LinkedList of length 1 and inserting after head.
+		'''
+		ll=LinkedList()
+		ll.prepend(0)
+		ll.insert_after(1,ll.head)
+		assert ll.head.next.x == 1
+
+	def test_delete_unique_value(self):
+		'''
+		Tests delete method when value is unique.
+		'''
+
+		ll=LinkedList()
+
+		ll.prepend(0)
+		ll.append(1)
+
+		assert ll.head.next.x == 1
+
+		ll.delete(1)
+
+		assert ll.head.next == None
+
+	def test_delete_first_of_two(self):
+		'''
+		Tests delete method when two equal values occur in list.
+		Only first occurrence of value ought to be deleted.
+		'''
+
+		ll=LinkedList()
+
+		ll.prepend(0)
+		ll.append(1)
+		ll.append(2)
+		ll.append(0)
+
+		ll.delete(0)
+
+		assert ll.head.x==1
+		assert ll.head.next.next.x==0
