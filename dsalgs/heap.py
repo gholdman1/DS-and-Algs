@@ -50,12 +50,12 @@ class Heap:
     def get_keys(self):
         nkeys=0
 
-        while nkeys< self.size and self.arr[nkeys]:
+        while nkeys < self.size and self.arr[nkeys] != None:
             nkeys+=1
         return nkeys
 
     def get_size(self):
-        return self. size
+        return self.size
         
     def insert(self,x):
 
