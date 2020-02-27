@@ -12,8 +12,12 @@ from dsalgs.linkedlist import LinkedList
 
 class TestLinkedList:
 
-	def __init__(self):
-		self.test_ds=LinkedList()
+	def test_prepend(self):
+		ll=LinkedList()
+		ll.prepend(0)
+		assert ll.head.x==0
 
-	def test_insert(self):
-		pass
+	def test_append(self):
+		ll=LinkedList()
+		ll.append(0)
+		assert ll.head.x==0
