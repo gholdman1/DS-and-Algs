@@ -70,3 +70,48 @@ class TestLinkedList:
 
 		assert ll.head.x==1
 		assert ll.head.next.next.x==0
+
+	def test_get_keys(self):
+		'''
+		Tests get_keys method which returns number of keys.
+		'''
+
+		ll=LinkedList()
+
+		ll.prepend(0)
+		ll.append(1)
+		ll.append(2)
+
+		assert ll.get_keys() == 3
+
+	def test_get_size(self):
+		'''
+		Tests get_size method which returns number of length.
+		'''
+
+		ll=LinkedList()
+
+		ll.prepend(0)
+		ll.append(1)
+		ll.append(2)
+
+		assert ll.get_size() == 3
+
+	def test_set_insert(self):
+		'''
+		Tests _set_insert method which changes implication of LinkedList.insert
+		'''
+
+		ll=LinkedList()
+		ll._set_insert('prepend')
+
+		ll.insert(0)
+		ll.insert(1)
+
+		assert ll.head.x==1
+
+		ll._set_insert('append')
+
+		ll.insert(2)
+
+		assert ll.head.next.next.x==2
