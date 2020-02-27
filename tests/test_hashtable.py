@@ -38,6 +38,14 @@ class TestHashTableChaining:
 
 		assert ht.get_keys()==1
 
+	def test_get_keys_large_load_factor(self):
+		ht=self.new_ht(5)
+
+		for i in range(36):
+			ht.insert(i)
+
+		assert ht.get_keys() == 36
+
 class TestHashTableOpenAddressing:
 	'''
 	Tests a HashTable using collisionhandling=='openaddressing' option.
