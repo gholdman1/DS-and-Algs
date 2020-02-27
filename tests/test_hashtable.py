@@ -10,10 +10,30 @@ sys.path.append(dsalgs_path)
 
 from dsalgs.hashtable import HashTable
 
-class TestHashTable:
+class TestHashTableChaining:
+	'''
+	Tests a HashTable using collisionhandling=='chaining' option.
+	'''
 
+	@staticmethod
+	def new_ht(slots):
+		return HashTable(slots,collisionhandling='chaining')
 
 	def test_get_size(self):
-		ht = HashTable(10)
+		ht = self.new_ht(10)
+
+		assert ht.get_size()==10
+
+class TestHashTableOpenAddressing:
+	'''
+	Tests a HashTable using collisionhandling=='openaddressing' option.
+	'''
+
+	@staticmethod
+	def new_ht(slots):
+		return HashTable(slots,collisionhandling='openaddressing')
+
+	def test_get_size(self):
+		ht = self.new_ht(10)
 
 		assert ht.get_size()==10
