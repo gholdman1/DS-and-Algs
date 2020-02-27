@@ -107,12 +107,12 @@ class TestHashTableOpenAddressing:
 
 		assert ht.loadfactor() == 0
 
-	# def test_loadfactor(self):
-	# 	ht = self.new_ht(10)
+	def test_loadfactor(self):
+		ht = self.new_ht(10)
 
-	# 	for i in range(4):
-	# 		ht.insert(i)
+		for i in range(4):
+			ht.insert(i)
 
-	# 	print(ht)
+		print(ht)
 
-	# 	assert ht.loadfactor() == 0.4
+		assert ht.loadfactor() == 0.4
