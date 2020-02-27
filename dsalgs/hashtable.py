@@ -78,7 +78,7 @@ class HashTable:
 
     # Basic information about table
     def loadfactor(self):
-        return self.get_keys()/self.slots
+        return self.get_keys()/self.get_size()
 
     def get_keys(self):
         '''
@@ -86,7 +86,7 @@ class HashTable:
         '''
         nkeys=0
         for i in range(self.slots):
-            if self.table[i]:
+            if self.table[i]!=None:
                 if self.collisionhandling=='chaining':
                     nkeys+=self.table[i].get_size()
                 if self.collisionhandling=='openaddressing':
