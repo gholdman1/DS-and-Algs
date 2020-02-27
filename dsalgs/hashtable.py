@@ -88,7 +88,7 @@ class HashTable:
         for i in range(self.slots):
             if self.table[i]:
                 if self.collisionhandling=='chaining':
-                    nkeys+=self.table[i].size()
+                    nkeys+=self.table[i].get_size()
                 if self.collisionhandling=='openaddressing':
                     nkeys+=1
 

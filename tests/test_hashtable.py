@@ -24,6 +24,20 @@ class TestHashTableChaining:
 
 		assert ht.get_size()==10
 
+	def test_insert(self):
+		ht= self.new_ht(10)
+
+		ht.insert(2)
+
+		assert ht.table[2].head.x==2
+
+	def test_get_keys(self):
+		ht= self.new_ht(10)
+
+		ht.insert(2)
+
+		assert ht.get_keys()==1
+
 class TestHashTableOpenAddressing:
 	'''
 	Tests a HashTable using collisionhandling=='openaddressing' option.
