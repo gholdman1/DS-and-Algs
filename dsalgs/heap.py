@@ -10,7 +10,7 @@ class Heap:
     def __init__(self,size ):
 
         self.head=None
-        self.size=2**(ceil(log(size,2)))
+        self.size=2**(ceil(log(size,2))) + 1
         self.arr=[None]*self.size
 
     def parent(self,k):

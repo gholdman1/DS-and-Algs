@@ -18,7 +18,7 @@ class TestHeap:
 	def test_get_size(self):
 		h = Heap(10)
 
-		assert h.get_size() == 16
+		assert h.get_size() == 17
 
 	def test_parent(self):
 		'''
