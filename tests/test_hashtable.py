@@ -1,6 +1,5 @@
 """Tests linkedlist.py"""
 
-import pytest
 import sys,os
 
 # Add dsalgs package to path
