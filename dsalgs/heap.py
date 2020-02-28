@@ -10,7 +10,7 @@ class Heap:
     def __init__(self,size ):
 
         self.head=None
-        self.size=2**(ceil(log(size,2))) + 1
+        self.size=2**(ceil(log(size-1,2))) + 1
         self.arr=[None]*self.size
 
     def parent(self,k):
@@ -52,7 +52,10 @@ class Heap:
         '''
 
         # Calculate required heap size
-        subsize = (self.get_size()) / (2**h.level(k))
+        subsize = (self.get_size()-1) / (2**self.level(k)) + 1
+        subheap = Heap(subsize)
+
+        return subheap
 
     def height(self):
         n=self.get_keys()

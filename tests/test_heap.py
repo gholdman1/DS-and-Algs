@@ -20,12 +20,16 @@ class TestHeap:
 
 		assert h.get_size() == 17
 
+		h2 = Heap(17)
+
+		assert h2.get_size() == 17
+
 	def test_parent(self):
 		'''
 		Tests that parent index is correct.
 		'''
 
-		h = Heap(16)
+		h = Heap(17)
 
 		assert h.parent(2) == 0
 		assert h.parent(1) == 0
@@ -35,7 +39,7 @@ class TestHeap:
 		Test level method.
 		'''
 
-		h = Heap(16)
+		h = Heap(17)
 
 		assert h.level(0) == 0
 		assert h.level(2) == 1
@@ -45,14 +49,14 @@ class TestHeap:
 
 
 	def test_insert(self):
-		h=Heap(16)
+		h=Heap(17)
 
-		for i in range(16):
+		for i in range(17):
 			h.insert(i)
 
 	def test_get_keys(self):
 
-		h = Heap(16)
+		h = Heap(17)
 
 		assert h.get_keys()==0
 
@@ -64,7 +68,7 @@ class TestHeap:
 		'''
 		Test height of Heap as filled
 		'''
-		h = Heap(16)
+		h = Heap(17)
 
 		assert h.height() == 0
 
@@ -79,7 +83,7 @@ class TestHeap:
 
 		arr = [4,6,7,8,1]
 
-		h = Heap(16)
+		h = Heap(17)
 		h.make_heap(arr)
 
 		assert h.arr[0]==1
@@ -93,7 +97,7 @@ class TestHeap:
 
 		arr = [4,6,1]
 
-		h = Heap(10)
+		h = Heap(9)
 		h.make_heap(arr)
 
 		h.insert(7)
@@ -101,3 +105,14 @@ class TestHeap:
 		assert h.arr[3] == 7
 		assert h.arr[0] == 1
 
+	def test_subheap(self):
+
+		h = Heap(9)
+
+		arr = [4,6,1,3,5,9,1,3,5]
+		h.make_heap(arr)
+
+		subh = h.subheap(2)
+		
+		assert subh.get_size() == 5
+		#assert subh.arr[0] == h.arr[2] # Array must have index 2 of h at top
