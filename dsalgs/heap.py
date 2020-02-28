@@ -1,5 +1,5 @@
 from dsalgs.utilities import swap
-from math import log
+from math import log, ceil
 
 class Heap:
     '''
@@ -10,7 +10,7 @@ class Heap:
     def __init__(self,size ):
 
         self.head=None
-        self.size=size
+        self.size=2**(ceil(log(size,2)))
         self.arr=[None]*self.size
 
     def parent(self,k):

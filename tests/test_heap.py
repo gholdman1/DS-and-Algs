@@ -18,27 +18,27 @@ class TestHeap:
 	def test_get_size(self):
 		h = Heap(10)
 
-		assert h.get_size() == 10
+		assert h.get_size() == 16
 
 	def test_parent(self):
 		'''
 		Tests that parent index is correct.
 		'''
 
-		h = Heap(10)
+		h = Heap(16)
 
 		assert h.parent(2) == 0
 		assert h.parent(1) == 0
 
 	def test_insert(self):
-		h=Heap(10)
+		h=Heap(16)
 
-		for i in range(10):
+		for i in range(16):
 			h.insert(i)
 
 	def test_get_keys(self):
 
-		h = Heap(10)
+		h = Heap(16)
 
 		assert h.get_keys()==0
 
@@ -50,7 +50,7 @@ class TestHeap:
 		'''
 		Test height of Heap as filled
 		'''
-		h = Heap(10)
+		h = Heap(16)
 
 		assert h.height() == 0
 
@@ -65,7 +65,7 @@ class TestHeap:
 
 		arr = [4,6,7,8,1]
 
-		h = Heap(10)
+		h = Heap(16)
 		h.make_heap(arr)
 
 		assert h.arr[0]==1
