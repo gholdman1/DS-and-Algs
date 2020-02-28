@@ -8,7 +8,7 @@ filepath=os.path.abspath(__file__)
 dsalgs_path=os.path.dirname(os.path.dirname(filepath))
 sys.path.append(dsalgs_path)
 
-from dsalgs.utilities import swap,merge
+from dsalgs.utilities import swap,merge, partition
 
 class TestSwap:
 
@@ -59,3 +59,24 @@ class TestMerge:
 		assert arr[1] == 1
 		assert arr[-1] == 20
 		assert arr[-2] == 19
+
+class TestPartition:
+	'''
+	Tests the partition utility.
+	'''
+
+	def test_partition_length_1(self):
+		arr=[1]
+
+		arr, i = partition(arr)
+
+		assert i == 0
+		assert arr == [1]
+
+	def test_length_3(self):
+		arr=[1,2,3]
+
+		arr,i = partition(arr)
+
+		assert i == 2
+		assert arr == [1,2,3]
