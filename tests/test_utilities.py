@@ -73,10 +73,18 @@ class TestPartition:
 		assert i == 0
 		assert arr == [1]
 
-	def test_length_3(self):
+	def test_partition_ordered_length_3(self):
 		arr=[1,2,3]
 
 		arr,i = partition(arr)
 
 		assert i == 2
 		assert arr == [1,2,3]
+
+	def test_partition_length_5(self):
+		arr=[4,9,2,5,6]
+
+		arr, i = partition(arr)
+
+		assert i == 3
+		assert arr == [4,2,5,6,9]
