@@ -30,6 +30,20 @@ class TestHeap:
 		assert h.parent(2) == 0
 		assert h.parent(1) == 0
 
+	def test_level(self):
+		'''
+		Test level method.
+		'''
+
+		h = Heap(16)
+
+		assert h.level(0) == 0
+		assert h.level(2) == 1
+		assert h.level(3) == 2
+		assert h.level(6) == 2
+		assert h.level(7) == 3
+
+
 	def test_insert(self):
 		h=Heap(16)
 

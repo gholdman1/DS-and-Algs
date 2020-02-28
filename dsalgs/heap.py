@@ -21,6 +21,13 @@ class Heap:
             return 0
         return int((k-1)/2)
 
+    def level(self,k):
+        '''
+        Returns the level of the index
+        '''
+
+        return int(log(k+1,2))
+
     def __str__(self):
 
         return str(self.arr)
@@ -39,12 +46,13 @@ class Heap:
             for i in range(len(arr)):
                 self.insert(arr[i])
 
-    def sub_heap(self,k):
+    def subheap(self,k):
         '''
         Returns the subheap starting at index k
         '''
 
-        pass
+        # Calculate required heap size
+        subsize = (self.get_size()) / (2**h.level(k))
 
     def height(self):
         n=self.get_keys()
