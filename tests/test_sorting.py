@@ -9,29 +9,37 @@ sys.path.append(dsalgs_path)
 
 from dsalgs.sorting import mergesort
 
-class SortingTester:
+# Tests for any sorting algorithm
 
-	def __init__(self,sort):
-		self.sort=sort
+def sort_length_1(sort):
+
+	arr = [1]
+	arr = sort(arr)
+
+	assert arr == [1]
+
+def sort_negatives(sort):
+	arr = [-5,-20,-34]
+	arr = sort(arr)
+
+	assert arr == [-34,-20,-5]
+
+def sort_longer(sort):
+
+	arr=[2,4,1,8,9,3,6,3,6,8,1,2,2,9,4,3,2,8]
+
+	arr = sort(arr)
+
+	assert arr == [1,1,2,2,2,2,3,3,3,4,4,6,6,8,8,8,9,9]
+
+# Tests for mergesort
+class TestMergeSort:
 
 	def test_sort_length_1(self):
-
-		arr = [1]
-		arr = self.sort(arr)
-
-		assert arr == [1]
+		sort_length_1(mergesort)
 
 	def test_sort_negatives(self):
-
-		arr = [-5,-20,-34]
-		arr = self.sort(arr)
-
-		assert arr == [-34,-20,-5]
+		sort_negatives(mergesort)
 
 	def test_sort_longer(self):
-
-		arr=[2,4,1,8,9,3,6,3,6,8,1,2,2,9,4,3,2,8]
-
-		arr = self.sort(arr)
-
-		assert arr == [1,1,2,2,2,2,3,3,3,4,4,6,6,8,8,8,9,9]
+		sort_negatives(mergesort)
