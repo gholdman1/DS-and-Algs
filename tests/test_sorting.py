@@ -61,6 +61,18 @@ class TestInsertionSort:
 	def test_sort_longer(self):
 		sort_negatives(insertionsort)
 
+# Tests for bubblesort
+class TestBubbleSort:
+
+	def test_sort_length_1(self):
+		sort_length_1(bubblesort)
+
+	def test_sort_negatives(self):
+		sort_negatives(bubblesort)
+
+	def test_sort_longer(self):
+		sort_negatives(bubblesort)
+
 # Tests for mergesort
 class TestMergeSort:
 
