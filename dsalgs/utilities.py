@@ -36,7 +36,7 @@ def partition(arr):
     i=-1
     for j in range(len(arr)-1):
         if arr[j]<=pivot:
-            i+=1
+            i+=1 # Found another smaller than pivot
             arr=swap(arr,i,j)
     arr=swap(arr,i+1,len(arr)-1)
     
