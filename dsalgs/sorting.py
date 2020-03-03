@@ -163,3 +163,34 @@ def timsort(arr):
     '''
 
     pass
+
+def pigeonholesort(arr):
+    '''
+    
+
+    Reference:
+        https://en.wikipedia.org/wiki/Pigeonhole_sort
+    '''
+
+    mi = min(arr) # Minimum value of arr
+    ma = max(arr)
+
+    size=ma-mi+1
+
+    buckets=[0]*size
+
+    # Count number of each possible key
+    for i in range(len(arr)):
+        x=arr[i]
+        buckets[x-mi]+=1
+
+    i=0
+    # Iterate over buckets
+    for j in range(size):
+        # Place all keys in this bucket back into arr
+        while buckets[j]>0:
+            buckets[j]-=1
+            arr[i]=j+mi
+            i+=1
+
+    return arr

@@ -13,6 +13,7 @@ from dsalgs.sorting import bubblesort
 from dsalgs.sorting import quicksort
 from dsalgs.sorting import mergesort
 from dsalgs.sorting import heapsort
+from dsalgs.sorting import pigeonholesort
 
 # Tests for any sorting algorithm
 
@@ -84,3 +85,20 @@ class TestMergeSort:
 
 	def test_sort_longer(self):
 		sort_negatives(mergesort)
+
+class TestPigeonholeSort:
+
+	def test_sort_length_1(self):
+		arr=[1]
+
+		arr=pigeonholesort(arr)
+
+		assert arr == [1]
+
+	def test_sort_longer(sort):
+
+		arr=[2,4,1,8,9,3,6,3,6,8,1,2,2,9,4,3,2,8]
+
+		arr = pigeonholesort(arr)
+
+		assert arr == [1,1,2,2,2,2,3,3,3,4,4,6,6,8,8,8,9,9]
